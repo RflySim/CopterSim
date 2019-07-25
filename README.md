@@ -1,10 +1,78 @@
 # CopterSim
 <br>
+
+## How to use the files.<br>
+1. Open "Multicopter_vPC.slx" file with Matlab 2017b and later. Noteworthy, the Aerospace Blockset is required for MATLAB.<br>
+2. Click the "Run" button to run the Simulink model.<br>
+![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/tree/master/imgs/SimulinkRunandCompile.png)<br>
+3. Click the "Compile" button to compile the model to C Code (Visual C++ 2015 or later is required).<br>
+4. Generate Code for LabVIEW for hardware-in-the-loop simulations. Configure the Simulink setting page according to the figure below.<br>
+![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/tree/master/imgs/SimulinkSetting.png)<br>
+5. Generate code for embedded system. Change the above "System target file" option to "ert.tlc".<br>
+
+
 <br>
-load MavLinkStruct;<br>
-%load path;<br>
+## File structure.<br>
+imgs: images for this Readme.md Tutorial.<br>
+Init.m: Initialization script automatically called before running the model File.<br>
+MavLinkStruct.mat: the bus Structs for the output and input signals<br>
+Multicopter_vPC.slx : the main Simulink model file.<br>
+SupportedVehicleTypes.docx :  supported vehicle types.<br>
 <br>
-%Initial condition<br>
+<br>
+## Input and output Ports.<br>
+inPWMs: input signal, ESC/motor control signal from the control system, eight-dimensional float vector, ranges from 0 to 1. <br>
+Terrain: input signal, the current terrain height, one-dimensional float value, positive for the down direction, unit (m) <br>
+MavHILSensor: output signal, bus struct, contains sensor data required by the Autopilot system like PX4/Ardupilot <br>
+MavHILGPS: output signal, bus struct, contains GPS data required by the Autopilot system like PX4/Ardupilot <br>
+MavVehileStateInfo:  output signal, bus struct, contains true state of the vehicle for the vehicle software simulation in Simulink <br>
+the detailed definition for the above output structs are presented below. <br>
+![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/tree/master/imgs/SimulinkOutputDefinitions.png)<br>
+
+
+## Change vehicle types.<br>
+The models cover all multicopter airframe for PX4 autopilot?http://dev.px4.io/en/airframes/airframe_reference.html <br>
+Modify the parameter "ModelParam_uavType" in Init.m file to change the vehicle types.
+The supported vehicle types include:
+ModelParam_uavType = 1: Tricopter Y+<br> 
+![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/tree/master/imgs/image1.png)<br> 
+<br> 
+ModelParam_uavType = 2: Tricopter Y-<br> 
+![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/tree/master/imgs/image2.png)<br>  
+<br> 
+ModelParam_uavType = 3:  Quadrotor X <br> 
+![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/tree/master/imgs/image3.png)<br> 
+<br> 
+ModelParam_uavType = 4:  Quadrotor +<br> 
+![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/tree/master/imgs/image4.png)<br>  
+<br> 
+ModelParam_uavType = 5:  Hexarotor x<br> 
+![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/tree/master/imgs/image5.png)<br>  
+<br> 
+ModelParam_uavType = 6:  Hexarotor +<br> 
+![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/tree/master/imgs/image6.png)<br>  
+<br> 
+ModelParam_uavType = 7: Hexarotor Coaxial<br> 
+![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/tree/master/imgs/image7.png)<br> 
+<br> 
+ModelParam_uavType = 8:  Octorotor x<br> 
+![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/tree/master/imgs/image8.png)<br> 
+<br> 
+ModelParam_uavType = 9:  Octorotor +<br> 
+![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/tree/master/imgs/image9.png)<br> 
+<br> 
+ModelParam_uavType = 10: Octorotor Coaxial<br> 
+![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/tree/master/imgs/image10.png)<br> 
+<br> 
+
+
+
+## Modify model parameters and inject fault during flight.<br>
+Change the corresponding parameters in in Init.m file
+
+load MavLinkStruct;  % load the bus structs HILGPS MavLinkGPS MavLinkSensor MavVehileInfo<br>
+<br>
+%Initial condition<br>  %set vehicle initial state.
 ModelInit_PosE = [0,0,0]; % Vehicle postion xyz in the NED earth frame (m)<br>
 ModelInit_VelB = [0,0,0]; % Vehicle speed xyz in the NED earth frame (m/s)<br>
 ModelInit_AngEuler = [0,0,0]; % Vehicle Euler angle xyz (roll,pitch,yaw) (rad)<br>
@@ -48,8 +116,6 @@ ModelParam_GPSLatLong = [ModelParam_envLatitude ModelParam_envLongitude];  %Lati
 ModelParam_envAltitude = -41.5260009765625;     %Reference height, down is positive<br>
 ModelParam_BusSampleRate = 0.001;            %Model sampling rate<br>
 <br>
-<br>
-<br>
 ModelParam_timeSampBaro = 0.01;  % Barometer data sample time<br>
 ModelParam_timeSampTurbWind = 0.01; % Atmospheric turbulence data sample time<br>
 %%%ModelParam_BattModelEnable=int8(0);<br>
@@ -61,7 +127,6 @@ ModelParam_GPSEphFinal=0.3; % GPS horizontal accuracy<br>
 ModelParam_GPSEpvFinal=0.4;  % GPS vertical accuracy<br>
 ModelParam_GPSFix3DFix=3;  % GPS fixed index<br>
 ModelParam_GPSSatsVisible=10;  % GPS number of satellites<br>
-<br>
 <br>
 %Noise Parameter<br>
 ModelParam_noisePowerAccel = [0.001,0.001,0.003];% accelerometer noise power xyz in Body frame<br>
@@ -76,8 +141,6 @@ ModelParam_noisePowerOffGainGyro = 0.02;  %accelerometer noise factor without mo
 ModelParam_noisePowerOffGainGyroZ = 0.025; %accelerometer noise Z factor without motor vibration<br>
 ModelParam_noisePowerOnGainGyro = 2;  %accelerometer noise factor under motor vibration<br>
 ModelParam_noisePowerOnGainGyroZ = 1; %accelerometer Z noise factor under motor vibration<br>
-<br>
-<br>
 <br>
 ModelParam_noisePowerMag = [0.00001,0.00001,0.00001];<br>
 ModelParam_noiseSampleTimeMag = 0.01; %magnetometer sample time<br>
@@ -102,8 +165,6 @@ ModelParam_envAirDensity = 1.225;    %ideal air density (not used)<br>
 ModelParam_envDiffPressure = 0; % Differential pressure (airspeed) in millibar<br>
 ModelParam_noiseTs = 0.001;<br>
 <br>
-<br>
-<br>
 %Failt Injection Test<br>
 ModelFailEnable = boolean(0); %is enabling failt injection test<br>
 <br>
@@ -121,8 +182,6 @@ ModelFailBatt_remainCapacityRatio=0.2; %remain capacility for low capacility fai
 %Propeller Model Failed<br>
 ModelFailProp_isEnable = boolean(1);% is injecting propeller failed<br>
 ModelFailProp_PropEffRatioVec = ones(1,8);%health state of the eight propeller (0:totally failed,0.x: propller thrust ratio, 1:OK);<br>
-<br>
-<br>
 <br>
 %Payload failure injection<br>
 ModelFailLoad_isEnable = boolean(0);%is Enabling payload failure<br>
