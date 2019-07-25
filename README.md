@@ -185,12 +185,12 @@ ModelFailProp_PropEffRatioVec = ones(1,8);%health state of the eight propeller (
 <br>
 %Payload failure injection<br>
 ModelFailLoad_isEnable = boolean(0);%is Enabling payload failure<br>
-ModelFailLoad_loadMassRatio = 0;  %payload weight ratio for the vehicle weight (0~1)<br>
+ModelFailLoad_loadMassRatio = 0;  %payload weight ratio for the vehicle weight (0 to 1)<br>
 ModelFailLoad_isLoadFall = boolean(0); %is payload droped<br>
 ModelFailLoad_isLoadShift = boolean(0); %is payload offset<br>
-ModelFailLoad_LoadShiftXRatio = 0;      %x-direction offset ration 0~1<br>
-ModelFailLoad_LoadShiftYRatio = 0;      %y-direction offset ration 0~1<br>
-ModelFailLoad_LoadShiftZRatio = 0;      %z-direction offset ration 0~1<br>
+ModelFailLoad_LoadShiftXRatio = 0;      %x-direction offset ration 0 to 1<br>
+ModelFailLoad_LoadShiftYRatio = 0;      %y-direction offset ration 0 to 1<br>
+ModelFailLoad_LoadShiftZRatio = 0;      %z-direction offset ration 0 to 1<br>
 ModelFailLoad_isLoadLeak = boolean(0);  %is payload slowly leaked<br>
 ModelFailLoad_LoadLeakRatioRate = 0;    %leak speed %/s<br>
 <br>
