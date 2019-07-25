@@ -4,10 +4,10 @@
 ## How to use the files.<br>
 1. Open "Multicopter_vPC.slx" file with Matlab 2017b and later. Noteworthy, the Aerospace Blockset is required for MATLAB.<br>
 2. Click the "Run" button to run the Simulink model.<br>
-![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/tree/master/imgs/SimulinkRunandCompile.png)<br>
+![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/master/imgs/SimulinkRunandCompile.png)<br>
 3. Click the "Compile" button to compile the model to C Code (Visual C++ 2015 or later is required).<br>
 4. Generate Code for LabVIEW for hardware-in-the-loop simulations. Configure the Simulink setting page according to the figure below.<br>
-![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/tree/master/imgs/SimulinkSetting.png)<br>
+![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/master/imgs/SimulinkSetting.png)<br>
 5. Generate code for embedded system. Change the above "System target file" option to "ert.tlc".<br>
 
 
@@ -27,7 +27,7 @@ MavHILSensor: output signal, bus struct, contains sensor data required by the Au
 MavHILGPS: output signal, bus struct, contains GPS data required by the Autopilot system like PX4/Ardupilot <br>
 MavVehileStateInfo:  output signal, bus struct, contains true state of the vehicle for the vehicle software simulation in Simulink <br>
 the detailed definition for the above output structs are presented below. <br>
-![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/tree/master/imgs/SimulinkOutputDefinitions.png)<br>
+![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/master/imgs/SimulinkOutputDefinitions.png)<br>
 
 
 ## Change vehicle types.<br>
@@ -35,34 +35,34 @@ The models cover all multicopter airframe for PX4 autopilot?http://dev.px4.io/en
 Modify the parameter "ModelParam_uavType" in Init.m file to change the vehicle types.
 The supported vehicle types include:
 ModelParam_uavType = 1: Tricopter Y+<br> 
-![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/tree/master/imgs/image1.png)<br> 
+![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/master/imgs/image1.png)<br> 
 <br> 
 ModelParam_uavType = 2: Tricopter Y-<br> 
-![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/tree/master/imgs/image2.png)<br>  
+![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/master/imgs/image2.png)<br>  
 <br> 
 ModelParam_uavType = 3:  Quadrotor X <br> 
-![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/tree/master/imgs/image3.png)<br> 
+![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/master/imgs/image3.png)<br> 
 <br> 
 ModelParam_uavType = 4:  Quadrotor +<br> 
-![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/tree/master/imgs/image4.png)<br>  
+![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/master/imgs/image4.png)<br>  
 <br> 
 ModelParam_uavType = 5:  Hexarotor x<br> 
-![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/tree/master/imgs/image5.png)<br>  
+![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/master/imgs/image5.png)<br>  
 <br> 
 ModelParam_uavType = 6:  Hexarotor +<br> 
-![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/tree/master/imgs/image6.png)<br>  
+![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/master/imgs/image6.png)<br>  
 <br> 
 ModelParam_uavType = 7: Hexarotor Coaxial<br> 
-![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/tree/master/imgs/image7.png)<br> 
+![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/master/imgs/image7.png)<br> 
 <br> 
 ModelParam_uavType = 8:  Octorotor x<br> 
-![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/tree/master/imgs/image8.png)<br> 
+![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/master/imgs/image8.png)<br> 
 <br> 
 ModelParam_uavType = 9:  Octorotor +<br> 
-![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/tree/master/imgs/image9.png)<br> 
+![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/master/imgs/image9.png)<br> 
 <br> 
 ModelParam_uavType = 10: Octorotor Coaxial<br> 
-![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/tree/master/imgs/image10.png)<br> 
+![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/master/imgs/image10.png)<br> 
 <br> 
 
 
