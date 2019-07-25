@@ -80,7 +80,7 @@ ModelParam_uavType = 10: Octorotor Coaxial<br>
 ## An online toolbox to quickly obtain the model parameters<br> 
 https://flyeval.com<br> 
 [![https://flyeval.com](https://raw.githubusercontent.com/XunhuaDai/CopterSim/master/imgs/flyeval.png)](https://flyeval.com)<br>
-[![https://flyeval.com](https://raw.githubusercontent.com/XunhuaDai/CopterSim/master/imgs/flyeval2.png)](https://flyeval.com)<br>
+[![https://flyeval.com](https://raw.githubusercontent.com/XunhuaDai/CopterSim/master/imgs/flyveal2.png)](https://flyeval.com)<br>
 <br>
 
 
