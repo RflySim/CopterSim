@@ -28,6 +28,7 @@ Init.m: Initialization script automatically called before running the model File
 MavLinkStruct.mat: the bus Structs for the output and input signals<br>
 Multicopter_vPC.slx : the main Simulink model file.<br>
 SupportedVehicleTypes.docx :  supported vehicle types.<br>
+MathModelDocEn.pdf : Mathematical derivation and simple modeling method for the simulatin model. <br>
 <br>
 <br>
 
@@ -77,9 +78,11 @@ ModelParam_uavType = 10: Octorotor Coaxial<br>
 
 
 ## An online toolbox to quickly obtain the model parameters<br> 
-            https://flyeval.com<br> 
-[![https://flyeval.com](https://raw.githubusercontent.com/XunhuaDai/CopterSim/master/imgs/flyeval.png)](https://flyeval.com)
+https://flyeval.com<br> 
+[![https://flyeval.com](https://raw.githubusercontent.com/XunhuaDai/CopterSim/master/imgs/flyeval.png)](https://flyeval.com)<br>
+[![https://flyeval.com](https://raw.githubusercontent.com/XunhuaDai/CopterSim/master/imgs/flyeval2.png)](https://flyeval.com)<br>
 <br>
+
 
 ## Modify model parameters and inject fault during flight.<br>
 Change the corresponding parameters in Init.m file
