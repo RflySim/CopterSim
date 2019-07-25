@@ -1,6 +1,11 @@
 # CopterSim
 <br>
 
+## Contact Info.<br>
+Visit our Lab pages to contact us:<br>
+http://rfly.buaa.edu.cn/index.html<br>
+<br>
+
 ## How to use the files.<br>
 1. Open "Multicopter_vPC.slx" file with Matlab 2017b and later. Noteworthy, the Aerospace Blockset is required for MATLAB.<br>
 2. Click the "Run" button to run the Simulink model.<br>
