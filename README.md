@@ -9,9 +9,8 @@
 4. Generate Code for LabVIEW for hardware-in-the-loop simulations. Configure the Simulink setting page according to the figure below.<br>
 ![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/master/imgs/SimulinkSetting.png)<br>
 5. Generate code for embedded system. Change the above "System target file" option to "ert.tlc".<br>
-
-
 <br>
+
 ## File structure.<br>
 imgs: images for this Readme.md Tutorial.<br>
 Init.m: Initialization script automatically called before running the model File.<br>
@@ -20,6 +19,7 @@ Multicopter_vPC.slx : the main Simulink model file.<br>
 SupportedVehicleTypes.docx :  supported vehicle types.<br>
 <br>
 <br>
+
 ## Input and output Ports.<br>
 inPWMs: input signal, ESC/motor control signal from the control system, eight-dimensional float vector, ranges from 0 to 1. <br>
 Terrain: input signal, the current terrain height, one-dimensional float value, positive for the down direction, unit (m) <br>
