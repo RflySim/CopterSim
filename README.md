@@ -1,9 +1,13 @@
 # CopterSim
-<br>
+A high-fidelity simulation model developed in Simulink that compatible with different types of multicopters. The model can be used to develop control algorithms in Simulink. The simulation model includes sensor data outputs that can be used to generate code to performe hardware-in-the-loop simulations for autopilot systems like Pixhawk/PX4 or Ardupilot. The fault-injection function allows testing the safety and reliability of the control algorithms.
 
 ## Contact Info.<br>
 Visit our Lab pages to contact us:<br>
 http://rfly.buaa.edu.cn/index.html<br>
+<br>
+A video to present the hardware-in-the-loop simulation project based on this simulation model.<br>
+[![https://youtu.be/GIb7JcGcXig](https://raw.githubusercontent.com/XunhuaDai/CopterSim/master/imgs/videocover.png)](https://youtu.be/GIb7JcGcXig)
+
 <br>
 
 ## How to use the files.<br>
@@ -14,6 +18,8 @@ http://rfly.buaa.edu.cn/index.html<br>
 4. Generate Code for LabVIEW for hardware-in-the-loop simulations. Configure the Simulink setting page according to the figure below.<br>
 ![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/master/imgs/SimulinkSetting.png)<br>
 5. Generate code for embedded system. Change the above "System target file" option to "ert.tlc".<br>
+
+
 <br>
 
 ## File structure.<br>
@@ -33,7 +39,6 @@ MavHILGPS: output signal, bus struct, contains GPS data required by the Autopilo
 MavVehileStateInfo:  output signal, bus struct, contains true state of the vehicle for the vehicle software simulation in Simulink <br>
 the detailed definition for the above output structs are presented below. <br>
 ![image](https://raw.githubusercontent.com/XunhuaDai/CopterSim/master/imgs/SimulinkOutputDefinitions.png)<br>
-
 
 ## Change vehicle types.<br>
 The models cover all multicopter airframe for PX4 autopilot?http://dev.px4.io/en/airframes/airframe_reference.html <br>
@@ -71,9 +76,8 @@ ModelParam_uavType = 10: Octorotor Coaxial<br>
 <br> 
 
 
-
 ## Modify model parameters and inject fault during flight.<br>
-Change the corresponding parameters in in Init.m file
+Change the corresponding parameters in Init.m file
 
 load MavLinkStruct;  % load the bus structs HILGPS MavLinkGPS MavLinkSensor MavVehileInfo<br>
 <br>
@@ -217,3 +221,5 @@ ModelFailWind_SheerWindStrength =0;%sheer wind strength<br>
 ModelFailWind_TurbWindDirec=0;%turbulence wind yaw direction<br>
 ModelFailWind_SheerWindDirec=0;%sheer wind yaw direction<br>
 <br>
+
+
